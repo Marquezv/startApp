@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SimpleApp</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<p id="logo" class="logo">LOGO</p>
+	<br>
+	<form action="seguir" method="post">
+		  	{% with messages = get_flashed_messages(with_categories=true) %}
+			    
+			    {% for category, message in messages %}
+			      <p class="label">{{ message }}</p>
+			    {% endfor %}
+			   
+			{% endwith %}
+		<br>
+		<input type="text" name="nome_input">
+		<br>
+		<input type="submit" value="Seguir" id="seguir_btn">
+	</form>
+</body>
+</html>
